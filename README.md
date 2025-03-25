@@ -79,3 +79,104 @@
   * Примеры запросов.
   * Инструкцию по запуску.
   * Описание БД (при наличии).
+
+
+## Инструкция по запуску проекта
+
+### Предварительные требования
+- Docker и Docker Compose
+- Python 3.8 или выше (для локальной разработки)
+
+### Запуск с помощью Docker Compose (рекомендуемый способ)
+
+1. Клонируйте репозиторий:
+```bash
+git clone <url-репозитория>
+cd FastAPI_project-2
+```
+
+2. Создайте файл `.env` в корневой директории проекта со следующим содержимым:
+```env
+DATABASE_URL=postgresql://postgres:postgres@db:5432/url_shortener
+REDIS_URL=redis://redis:6379/0
+SECRET_KEY=your-secret-key-here
+ALGORITHM=HS256
+ACCESS_TOKEN_EXPIRE_MINUTES=30
+DEFAULT_LINK_EXPIRY_DAYS=30
+```
+
+3. Запустите проект с помощью Docker Compose:
+```bash
+docker-compose up --build
+```
+
+После запуска API будет доступно по адресу: http://localhost:8080
+
+### Локальный запуск (без Docker)
+
+1. Создайте виртуальное окружение:
+```bash
+python -m venv venv
+source venv/bin/activate  # для Linux/Mac
+venv\Scripts\activate     # для Windows
+```
+
+2. Установите зависимости:
+```bash
+pip install -r requirements.txt
+```
+
+3. Создайте файл `.env` с необходимыми переменными окружения (как описано выше)
+
+4. Запустите сервер:
+```bash
+uvicorn app.main:app --reload
+```
+
+### Проверка работоспособности
+
+После запуска вы можете открыть документацию API по адресу:
+- Swagger UI: http://localhost:8080/docs
+- ReDoc: http://localhost:8080/redoc
+
+### Основные эндпоинты API
+
+1. Создание короткой ссылки:
+```bash
+POST /links/shorten
+{
+    "original_url": "https://example.com",
+    "custom_alias": "optional-custom-alias",
+    "expires_at": "2024-12-31T23:59:59"
+}
+```
+
+2. Получение информации о ссылке:
+```bash
+GET /links/{short_code}/stats
+```
+
+3. Поиск ссылки по оригинальному URL:
+```bash
+GET /links/search?original_url=https://example.com
+```
+
+4. Удаление ссылки:
+```bash
+DELETE /links/{short_code}
+```
+
+5. Обновление ссылки:
+```bash
+PUT /links/{short_code}
+{
+    "original_url": "https://new-example.com"
+}
+```
+
+### Аутентификация
+
+Для доступа к защищенным эндпоинтам (удаление и обновление ссылок) необходимо:
+1. Зарегистрироваться: `POST /auth/register`
+2. Получить токен: `POST /auth/token`
+3. Использовать полученный токен в заголовке `Authorization: Bearer <token>`
