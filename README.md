@@ -194,4 +194,17 @@ curl -X GET "http://localhost:8080/links/{short_code}/stats"
 
 ![image](https://github.com/user-attachments/assets/6c0724f2-69e2-454b-a4ca-671295ab4003)
 ![image](https://github.com/user-attachments/assets/da51bf89-093f-43c0-a277-ae948ad2c363)
+![image](https://github.com/user-attachments/assets/91024069-ddab-4857-8bca-b2f445351dc6)
+![image](https://github.com/user-attachments/assets/ad9322f2-c9b0-4f42-8a43-c6e33ed23b7e)
+![image](https://github.com/user-attachments/assets/338d2563-ea4a-4def-9f10-8cd7fd455473)
+![image](https://github.com/user-attachments/assets/25de99e5-9ed3-45e4-b687-e926bab73d92)
+![image](https://github.com/user-attachments/assets/529b0e54-d218-4dba-9c2c-97772947819a)
+![image](https://github.com/user-attachments/assets/8055c328-b83b-41fa-8626-86ee110a4a7d)
+![image](https://github.com/user-attachments/assets/31fa4349-5dca-4cbd-9808-f3c1fced5bc8)
+
+
+
+
+
+
 
