@@ -190,3 +190,8 @@ curl -X GET "http://localhost:8080/links/{short_code}/stats"
 - Python 3.9+
 - PostgreSQL 15
 - Redis 7 
+
+
+![image](https://github.com/user-attachments/assets/6c0724f2-69e2-454b-a4ca-671295ab4003)
+![image](https://github.com/user-attachments/assets/da51bf89-093f-43c0-a277-ae948ad2c363)
+
